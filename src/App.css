@@ -1,23 +1,43 @@
+:root {
+  --red: #ed1b24;
+}
+
 /* GLOBALS */
 .container {
   margin: 10px 20px;
 }
 body {
   background-color: #101211;
+  color: white;
+  font-family: "Comic Neue";
 }
 
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
 h2 {
-  color: white;
   font-weight: bold;
 }
 
-p {
-  color: white;
+img {
+  object-fit: cover;
+}
+
+button {
+  background-color: var(--red);
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 /* HEADER */
 
 header img {
-  width: 100px;
+  width: 130px;
   margin: 0 15px;
 }
 
@@ -25,23 +45,23 @@ header {
   display: flex;
   align-items: center;
 
-  background-color: black;
+  background-color: var(--red);
   height: 100px;
 }
 
 .icons-menu {
   display: flex;
-
+  justify-content: center;
   gap: 10px;
   color: white;
   width: 100%;
   box-sizing: border-box; /* Pour inclure le padding dans la largeur */
 }
 
-.icons-menu p {
-  margin: 0 15px;
-  font-size: 20px;
-  font-weight: bold;
+.icons-menu button {
+  font-size: 16px;
+
+  color: white;
 }
 
 .characters-container {
@@ -53,7 +73,7 @@ header {
 }
 
 .characters-items {
-  border: 5px outset #5e1c16;
+  border: 1px outset black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,4 +100,20 @@ header {
 
 .hide-description {
   display: none;
+}
+
+/* CHARACTER PAGE */
+
+.character-container {
+  display: flex;
+
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 5px var(--red);
+  border-radius: 5px;
+}
+
+.character-container p {
+  margin-left: 10px;
 }
