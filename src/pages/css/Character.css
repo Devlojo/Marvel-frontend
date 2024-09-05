@@ -1,0 +1,13 @@
+.character-container {
+  display: flex;
+
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 5px var(--red);
+  border-radius: 5px;
+}
+
+.character-container p {
+  margin-left: 10px;
+}

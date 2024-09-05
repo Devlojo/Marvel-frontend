@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./css/Character.css";
 
 const Character = () => {
   const { characterId } = useParams();
@@ -24,6 +25,9 @@ const Character = () => {
     <h1>Loading ...</h1>
   ) : (
     <>
+      {data.comics.map((comicUrl) => {
+        console.log(comicUrl);
+      })}
       <h1>{data.name}</h1>
       <article className="character-container">
         <img

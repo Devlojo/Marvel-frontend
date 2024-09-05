@@ -1,13 +1,16 @@
 :root {
-  --red: #ed1b24;
+  --mainRed: #ed1b24;
+  --mainBlue: #012c3c;
+  --black: #101211;
 }
 
 /* GLOBALS */
+
 .container {
   margin: 10px 20px;
 }
 body {
-  background-color: #101211;
+  background-color: var(--mainBlue);
   color: white;
   font-family: "Comic Neue";
 }
@@ -27,93 +30,10 @@ img {
 }
 
 button {
-  background-color: var(--red);
+  background-color: var(--mainRed);
   border: none;
 }
 
 button:hover {
   cursor: pointer;
-}
-/* HEADER */
-
-header img {
-  width: 130px;
-  margin: 0 15px;
-}
-
-header {
-  display: flex;
-  align-items: center;
-
-  background-color: var(--red);
-  height: 100px;
-}
-
-.icons-menu {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  color: white;
-  width: 100%;
-  box-sizing: border-box; /* Pour inclure le padding dans la largeur */
-}
-
-.icons-menu button {
-  font-size: 16px;
-
-  color: white;
-}
-
-.characters-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-
-  padding: 20px 0;
-}
-
-.characters-items {
-  border: 1px outset black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  border-radius: 5px;
-  position: relative;
-}
-
-.characters-items:hover {
-  opacity: 0.9;
-  cursor: pointer;
-}
-
-.characters-items:hover .hide-description {
-  display: block;
-
-  background-color: #101211;
-  margin: 0 10px;
-  position: absolute;
-  top: 20px;
-  padding: 10px 10px;
-  border-radius: 10px;
-}
-
-.hide-description {
-  display: none;
-}
-
-/* CHARACTER PAGE */
-
-.character-container {
-  display: flex;
-
-  margin: 20px;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 5px 5px 5px var(--red);
-  border-radius: 5px;
-}
-
-.character-container p {
-  margin-left: 10px;
 }
