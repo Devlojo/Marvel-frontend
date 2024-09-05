@@ -19,7 +19,9 @@ const Characters = () => {
     fetchData();
   }, []);
   return isLoading ? (
-    <h1>Loading ....</h1>
+    <main>
+      <h1>Loading ....</h1>
+    </main>
   ) : (
     <>
       {" "}
@@ -30,27 +32,23 @@ const Characters = () => {
               //console.log(character);
 
               return (
-                <article
-                  className="characters-items"
-                  onClick={() => {
-                    navigate(`/character/${character._id}`);
-                  }}
-                  key={character._id}
-                >
-                  <img
-                    src={
-                      character.thumbnail.path +
-                      "/portrait_medium." +
-                      character.thumbnail.extension
-                    }
-                    alt={`photo de ${character.name}`}
-                  />
-                  <div className="character-description">
-                    <h2>{character.name}</h2>
+                <Link to={`/character/${character._id}`} key={character._id}>
+                  <article className="characters-items">
+                    <img
+                      src={
+                        character.thumbnail.path +
+                        "/portrait_medium." +
+                        character.thumbnail.extension
+                      }
+                      alt={`photo de ${character.name}`}
+                    />
+                    <div className="character-description">
+                      <h2>{character.name}</h2>
 
-                    <p>{character.description}</p>
-                  </div>
-                </article>
+                      <p>{character.description}</p>
+                    </div>
+                  </article>
+                </Link>
               );
             })}
           </div>

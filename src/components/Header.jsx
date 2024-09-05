@@ -1,5 +1,7 @@
 import logo from "../assets/marvel-logo.png";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+
 import "./css/Header.css";
 const Header = () => {
   return (
@@ -17,6 +19,16 @@ const Header = () => {
         </Link>
         <button>Favorite</button>
         <button>Sign in</button>
+        <div className="search-container">
+          <button
+            onClick={() => {
+              console.log("cliqué");
+            }}
+          >
+            <FaSearch className="search-icon" />
+          </button>
+          <input type="search" />
+        </div>
       </nav>
     </header>
   );

@@ -19,28 +19,32 @@ const Comics = () => {
   }, []);
   return isLoading ? (
     <>
-      <h1>Loading ...</h1>
+      <main>
+        <h1>Loading ...</h1>
+      </main>
     </>
   ) : (
     <main>
       <div className="container">
         <div className="comics-container">
           {data.map((comic) => {
-            console.log(comic);
             return (
-              <div className="comics-items" key={comic._id}>
-                <h2>{comic.title}</h2>
-                <img
-                  src={
-                    comic.thumbnail.path +
-                    "/portrait_uncanny." +
-                    comic.thumbnail.extension
-                  }
-                  alt={`photo de ${comic.title}`}
-                />
-
-                <p className="hide-description">{comic.description}</p>
-              </div>
+              <Link to={`/comic/${comic._id}`}>
+                <div className="comics-items" key={comic._id}>
+                  <img
+                    src={
+                      comic.thumbnail.path +
+                      "/portrait_incredible." +
+                      comic.thumbnail.extension
+                    }
+                    alt={`photo de ${comic.title}`}
+                  />
+                  <div className="comic-description-container">
+                    <h2>{comic.title}</h2>
+                    <p>{comic.description}</p>
+                  </div>
+                </div>
+              </Link>
             );
           })}
         </div>

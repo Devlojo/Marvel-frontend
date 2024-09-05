@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./css/Character.css";
+import { MdFavoriteBorder } from "react-icons/md";
 
 const Character = () => {
   const { characterId } = useParams();
   const [data, setData] = useState();
+  const [comics, setComics] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +16,26 @@ const Character = () => {
       const response = await axios.get(
         `http://localhost:8000/character/${characterId}`
       );
-      console.log(response.data);
+
+      // On stocke l'id des comics pour préparer une requete et recupérer les infos du comic
+      const comicsId = response.data.comics;
+
+      // On créer un tableau vide qui va servir à stocker les données de la réponse de la requête
+      const comicsCopy = [];
+
+      // ComicsId étant un tableau, on boucle en faisant une requête à chaque tour de boucle en mettant en params l'id du comic
+      for (let comicId of comicsId) {
+        // récupération des informations liés à un comic particulier via le params comicId
+        const comicsData = await axios.get(
+          `http://localhost:8000/comic/${comicId}`
+        );
+
+        // Ajout des données dans le tableau
+        comicsCopy.push(comicsData.data);
+      }
+      // Ajout de tout les données extrait depuis la requête dans le state comics
+      setComics(comicsCopy);
+
       setData(response.data);
       setIsLoading(false);
     };
@@ -22,24 +43,54 @@ const Character = () => {
   }, [characterId]);
 
   return isLoading ? (
-    <h1>Loading ...</h1>
+    <main>
+      <h1>Loading ...</h1>
+    </main>
   ) : (
     <>
-      {data.comics.map((comicUrl) => {
-        console.log(comicUrl);
-      })}
-      <h1>{data.name}</h1>
-      <article className="character-container">
-        <img
-          src={
-            data.thumbnail.path +
-            "/portrait_uncanny." +
-            data.thumbnail.extension
-          }
-          alt={`photo de ${data.name}`}
-        />
-        <p>{data.description}</p>
-      </article>
+      <main>
+        <article className="character-container">
+          <div className="character-description-container">
+            <img
+              src={
+                data.thumbnail.path +
+                "/portrait_uncanny." +
+                data.thumbnail.extension
+              }
+              alt={`photo de ${data.name}`}
+              className="character-image"
+            />
+            <h1>{data.name}</h1>
+            <p>{data.description}</p>
+          </div>
+          {/*<MdFavoriteBorder className="heart-icon" />*/}
+
+          <div className="comics-container">
+            {comics.map((comic) => {
+              return (
+                <>
+                  <Link to={`/comic/${comic._id}`}>
+                    <div key={comic._id} className="comics-items">
+                      <img
+                        src={
+                          comic.thumbnail.path +
+                          "/portrait_medium." +
+                          comic.thumbnail.extension
+                        }
+                        alt={`photo de ${comic.title}`}
+                      />
+                      <div className="comic-description-container">
+                        <h2>{comic.title}</h2>
+                        <p>{comic.description}</p>
+                      </div>
+                    </div>
+                  </Link>
+                </>
+              );
+            })}
+          </div>
+        </article>
+      </main>
     </>
   );
 };

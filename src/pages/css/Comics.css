@@ -1,34 +1,35 @@
 .comics-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 80px;
   padding: 20px 0;
 }
 
 .comics-items {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
   cursor: pointer;
+  box-shadow: 5px 5px 10px var(--black);
+  border-radius: 5px;
+  width: 400px;
+  max-height: 202px;
 }
 
-.comics-items h2 {
+.comics-items:hover {
+  box-shadow: 5px 5px 10px var(--mainRed);
+}
+
+.comics-items img {
+  height: 200px;
+}
+
+.comic-description-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /*justify-content: space-around;*/
+  padding: 10px;
 }
 
-.hide-description {
-  display: none;
-}
-
-.comics-items:hover .hide-description {
-  display: block;
-
-  background-color: #101211;
-  margin: 0 10px;
-  position: absolute;
-  bottom: 10px;
-  padding: 10px 10px;
-  border-radius: 10px;
+.comic-description-container p {
+  margin-top: 10px;
+  overflow: hidden;
 }

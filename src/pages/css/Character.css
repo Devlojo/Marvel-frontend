@@ -1,13 +1,35 @@
 .character-container {
   display: flex;
-
+  /*position: relative;*/
   margin: 20px;
   padding: 10px;
   box-sizing: border-box;
-  box-shadow: 5px 5px 5px var(--red);
-  border-radius: 5px;
+  box-shadow: 2px 2px 5px var(--black);
+  border-radius: 15px 50px;
+}
+.character-image {
+  border-radius: 15px 50px;
+  box-shadow: 5px 5px 10px var(--black);
+
+  width: 250px;
 }
 
+/*.heart-icon {
+  position: absolute;
+  font-size: 30px;
+  bottom: 10px;
+}*/
 .character-container p {
-  margin-left: 10px;
+  margin: 10px 10px;
+}
+
+.character-description-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-right: 40px;
+}
+
+.comics-container {
+  display: flex;
 }

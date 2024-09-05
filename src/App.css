@@ -6,6 +6,13 @@
 
 /* GLOBALS */
 
+a {
+  text-decoration: none;
+  color: white;
+}
+main {
+  padding-top: 110px;
+}
 .container {
   margin: 10px 20px;
 }
@@ -36,4 +43,12 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

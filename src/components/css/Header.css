@@ -13,7 +13,9 @@ header img:hover {
 header {
   display: flex;
   align-items: center;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: var(--mainRed);
   height: 100px;
 }
@@ -37,4 +39,26 @@ header {
 .nav-menu button {
   font-size: 16px;
   color: white;
+}
+
+.search-container {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-container button {
+  align-items: center;
+  display: flex;
+}
+
+.search-container input {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 300px;
+  height: 25px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid black;
 }
