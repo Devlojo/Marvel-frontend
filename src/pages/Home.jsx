@@ -33,7 +33,7 @@ const Home = ({ search }) => {
   ) : (
     <main className="home-container">
       <h1>
-        Welcome, wanna know more about your favorite super-hero ? &#128515;
+        Welcome, more information about your favorite super-hero ? &#128515;
       </h1>
       <p>click here</p>
       <LuArrowBigDown className="arrow-down" />
