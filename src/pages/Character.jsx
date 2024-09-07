@@ -28,7 +28,7 @@ const Character = () => {
       for (let comicId of comicsId) {
         // récupération des informations liés à un comic particulier via le params comicId
         const comicsData = await axios.get(
-          `http://localhost:8000/comic/${comicId}`
+          `https://site--marvel-backend--bf7zj7wtgltq.code.run/comic/${comicId}`
         );
 
         // Ajout des données dans le tableau

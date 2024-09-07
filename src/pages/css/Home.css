@@ -17,12 +17,10 @@
   margin-bottom: 10px;
   align-items: center;
   max-width: 168px;
-  transition: scale 1s;
 }
 
 .home-character-item:hover {
   cursor: pointer;
-  scale: 1.2;
 }
 
 .home-character-item h2 {
