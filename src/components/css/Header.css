@@ -31,10 +31,12 @@ header {
   box-sizing: border-box; /* Pour inclure le padding dans la largeur */
 }
 
-.nav-menu button:hover {
+.nav-menu button:hover,
+.search-icon:hover {
   transform: scale(1.1);
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
+  cursor: pointer;
 }
 
 .nav-menu button {

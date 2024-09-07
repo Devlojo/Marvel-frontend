@@ -3,24 +3,47 @@
   align-items: center;
   flex-direction: column;
   gap: 5px;
+  justify-content: center;
+  height: 500px;
 }
 
 .home-character-container {
   margin: 10px 0;
   box-shadow: 2px 2px 5px var(--black);
   border-radius: 15px 15px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
 }
 
 .home-character-item {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
   align-items: center;
   max-width: 168px;
+  /*transition: background-color 2s ease-out 100ms;*/
+
+  border-radius: 15px 15px;
 }
 
-.home-character-item:hover {
+.home-character-container:hover {
   cursor: pointer;
+  /*background-color: var(--mainRed);*/
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .home-character-item h2 {

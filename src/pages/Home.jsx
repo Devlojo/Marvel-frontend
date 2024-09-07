@@ -6,13 +6,12 @@ import { LuArrowBigDown } from "react-icons/lu";
 
 import "./css/Home.css";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [limit, setLimit] = useState(3);
 
   useEffect(() => {
-    console.log("useEffect");
     const fetchData = async () => {
       const response = await axios.get(
         `https://site--marvel-backend--bf7zj7wtgltq.code.run/characters`

@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 import "./css/Header.css";
-const Header = () => {
+const Header = ({ search, setSearch }) => {
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
   return (
     <header>
       <nav className="nav-menu">
@@ -22,14 +25,19 @@ const Header = () => {
         </Link>
 
         <div className="search-container">
-          <input type="search" placeholder="ex : Hulk" />
-          <button
+          <input
+            type="search"
+            placeholder="ex : Hulk"
+            onChange={handleSearch}
+            value={search}
+          />
+
+          <FaSearch
+            className="search-icon"
             onClick={() => {
               console.log("cliqué");
             }}
-          >
-            <FaSearch className="search-icon" />
-          </button>
+          />
         </div>
       </nav>
     </header>

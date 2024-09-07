@@ -28,6 +28,7 @@
 .characters-items:hover {
   /*border: 1px inset var(--red);*/
   box-shadow: 2px 2px 10px var(--mainRed);
+
   cursor: pointer;
 }
 

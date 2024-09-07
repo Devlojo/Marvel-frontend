@@ -2,3 +2,10 @@ footer {
   text-align: center;
   margin: 10px 0;
 }
+
+footer a {
+  font-weight: bold;
+}
+footer a:hover {
+  color: var(--mainRed);
+}

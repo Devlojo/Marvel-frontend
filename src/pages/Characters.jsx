@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./css/Characters.css";
 import Loading from "../components/Loading";
 
-const Characters = () => {
+const Characters = ({ search }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -12,15 +12,17 @@ const Characters = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://site--marvel-backend--bf7zj7wtgltq.code.run/characters"
+        `https://site--marvel-backend--bf7zj7wtgltq.code.run/characters?name=${search}`
       );
       //console.log(response.data.results);
-
+      /*const characters = response.data.results;
+      const found = characters.find((element) => element.name === search);
+      console.log(found);*/
       setData(response.data.results);
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [search]);
   return isLoading ? (
     <Loading />
   ) : (
