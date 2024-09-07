@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Comics.css";
+import Loading from "../components/Loading";
 
 const Comics = () => {
   const [data, setData] = useState();
@@ -10,7 +11,9 @@ const Comics = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:8000/comics");
+      const response = await axios.get(
+        "https://site--marvel-backend--bf7zj7wtgltq.code.run/comics"
+      );
       //console.log(response.data.results);
       setData(response.data.results);
       setIsLoading(false);
@@ -19,9 +22,7 @@ const Comics = () => {
   }, []);
   return isLoading ? (
     <>
-      <main>
-        <h1>Loading ...</h1>
-      </main>
+      <Loading />
     </>
   ) : (
     <main>
@@ -29,8 +30,8 @@ const Comics = () => {
         <div className="comics-container">
           {data.map((comic) => {
             return (
-              <Link to={`/comic/${comic._id}`}>
-                <div className="comics-items" key={comic._id}>
+              <Link to={`/comic/${comic._id}`} key={comic._id}>
+                <div className="comics-items">
                   <img
                     src={
                       comic.thumbnail.path +

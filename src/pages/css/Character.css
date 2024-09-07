@@ -19,15 +19,19 @@
   font-size: 30px;
   bottom: 10px;
 }*/
-.character-container p {
-  margin: 10px 10px;
-}
 
 .character-description-container {
   display: flex;
   flex-direction: column;
   width: 250px;
   margin-right: 40px;
+}
+
+.character-description-container h1 {
+  margin-top: 10px;
+}
+.character-description-container p {
+  margin: 10px 10px;
 }
 
 .comics-container {

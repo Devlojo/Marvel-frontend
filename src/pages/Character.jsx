@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./css/Character.css";
+import Loading from "../components/Loading";
 import { MdFavoriteBorder } from "react-icons/md";
 
 const Character = () => {
@@ -14,7 +15,7 @@ const Character = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:8000/character/${characterId}`
+        `https://site--marvel-backend--bf7zj7wtgltq.code.run/character/${characterId}`
       );
 
       // On stocke l'id des comics pour préparer une requete et recupérer les infos du comic
@@ -43,9 +44,7 @@ const Character = () => {
   }, [characterId]);
 
   return isLoading ? (
-    <main>
-      <h1>Loading ...</h1>
-    </main>
+    <Loading />
   ) : (
     <>
       <main>
@@ -68,24 +67,22 @@ const Character = () => {
           <div className="comics-container">
             {comics.map((comic) => {
               return (
-                <>
-                  <Link to={`/comic/${comic._id}`}>
-                    <div key={comic._id} className="comics-items">
-                      <img
-                        src={
-                          comic.thumbnail.path +
-                          "/portrait_medium." +
-                          comic.thumbnail.extension
-                        }
-                        alt={`photo de ${comic.title}`}
-                      />
-                      <div className="comic-description-container">
-                        <h2>{comic.title}</h2>
-                        <p>{comic.description}</p>
-                      </div>
+                <Link to={`/comic/${comic._id}`} key={comic._id}>
+                  <div className="comics-items">
+                    <img
+                      src={
+                        comic.thumbnail.path +
+                        "/portrait_medium." +
+                        comic.thumbnail.extension
+                      }
+                      alt={`photo de ${comic.title}`}
+                    />
+                    <div className="comic-description-container">
+                      <h2>{comic.title}</h2>
+                      <p>{comic.description}</p>
                     </div>
-                  </Link>
-                </>
+                  </div>
+                </Link>
               );
             })}
           </div>

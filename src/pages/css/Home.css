@@ -1,0 +1,38 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.home-character-container {
+  margin: 10px 0;
+  box-shadow: 2px 2px 5px var(--black);
+  border-radius: 15px 15px;
+}
+
+.home-character-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  align-items: center;
+  max-width: 168px;
+  transition: scale 1s;
+}
+
+.home-character-item:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.home-character-item h2 {
+  margin-top: 10px;
+}
+
+.home-character-item img {
+  border-radius: 15px 15px 0 0;
+}
+
+.arrow-down {
+  font-size: 30px;
+}

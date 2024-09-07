@@ -1,0 +1,10 @@
+.comic-container {
+  display: flex;
+  box-shadow: 5px 5px 10px var(--black);
+
+  margin: 20px;
+}
+
+.comic-container img {
+  margin: 10px;
+}

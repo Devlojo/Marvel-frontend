@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Characters.css";
+import Loading from "../components/Loading";
 
 const Characters = () => {
   const [data, setData] = useState();
@@ -10,7 +11,9 @@ const Characters = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:8000/characters");
+      const response = await axios.get(
+        "https://site--marvel-backend--bf7zj7wtgltq.code.run/characters"
+      );
       //console.log(response.data.results);
 
       setData(response.data.results);
@@ -19,9 +22,7 @@ const Characters = () => {
     fetchData();
   }, []);
   return isLoading ? (
-    <main>
-      <h1>Loading ....</h1>
-    </main>
+    <Loading />
   ) : (
     <>
       {" "}

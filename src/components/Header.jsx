@@ -13,13 +13,16 @@ const Header = () => {
         <Link to="/comics">
           <button>Comics</button>
         </Link>
+        <button>Favorite</button>
 
+        <button>Sign in</button>
+        <button>Login</button>
         <Link to="/">
           <img src={logo} alt="logo marvel" />
         </Link>
-        <button>Favorite</button>
-        <button>Sign in</button>
+
         <div className="search-container">
+          <input type="search" placeholder="ex : Hulk" />
           <button
             onClick={() => {
               console.log("cliqué");
@@ -27,7 +30,6 @@ const Header = () => {
           >
             <FaSearch className="search-icon" />
           </button>
-          <input type="search" />
         </div>
       </nav>
     </header>
