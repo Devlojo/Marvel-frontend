@@ -7,12 +7,10 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 
-const Characters = ({ search, handleSearch }) => {
+const Characters = ({ search, handleSearch, favorites, handleFavorites }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-
-  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,12 +23,6 @@ const Characters = ({ search, handleSearch }) => {
     };
     fetchData();
   }, []);
-
-  const handleIsActive = (event) => {
-    event.preventDefault();
-
-    setIsActive(!isActive);
-  };
 
   return isLoading ? (
     <Loading />
@@ -59,8 +51,14 @@ const Characters = ({ search, handleSearch }) => {
                   <Link to={`/character/${character._id}`} key={character._id}>
                     <article className="characters-items">
                       <IoMdHeartEmpty
-                        className={isActive ? "red" : "heart-icon"}
-                        onClick={handleIsActive}
+                        className={
+                          favorites.includes(character._id)
+                            ? "red"
+                            : "heart-icon"
+                        }
+                        onClick={(event) => {
+                          handleFavorites(event, character._id);
+                        }}
                       />
 
                       <img

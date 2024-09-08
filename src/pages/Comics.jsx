@@ -5,8 +5,9 @@ import "./css/Comics.css";
 import Loading from "../components/Loading";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoMdHeartEmpty } from "react-icons/io";
 
-const Comics = ({ search, handleSearch }) => {
+const Comics = ({ search, handleSearch, favorites, handleFavorites }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -46,6 +47,14 @@ const Comics = ({ search, handleSearch }) => {
               return (
                 <Link to={`/comic/${comic._id}`} key={comic._id}>
                   <div className="comics-items">
+                    <IoMdHeartEmpty
+                      className={
+                        favorites.includes(comic._id) ? "red" : "heart-icon"
+                      }
+                      onClick={(event) => {
+                        handleFavorites(event, comic._id);
+                      }}
+                    />
                     <img
                       src={
                         comic.thumbnail.path +

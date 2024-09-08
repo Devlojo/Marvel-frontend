@@ -47,16 +47,3 @@
 .character-description p {
   margin: 10px 10px;
 }
-
-.heart-icon {
-  position: absolute;
-  font-size: 25px;
-  right: 5px;
-}
-
-.red {
-  color: red;
-  position: absolute;
-  font-size: 25px;
-  right: 5px;
-}

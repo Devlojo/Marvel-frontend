@@ -12,6 +12,7 @@
   border-radius: 5px;
   width: 400px;
   max-height: 202px;
+  position: relative;
 }
 
 .comics-items:hover {
