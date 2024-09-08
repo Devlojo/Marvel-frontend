@@ -1,44 +1,34 @@
 import logo from "../assets/marvel-logo.png";
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import "./css/Header.css";
-const Header = ({ search, setSearch }) => {
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
+import { useState } from "react";
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenuBurger = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
   };
+
   return (
     <header>
       <nav className="nav-menu">
+        <GiHamburgerMenu className="burger-menu" onClick={toggleMenuBurger} />
+
         <Link to="/characters">
           <button>Characters</button>
         </Link>
         <Link to="/comics">
           <button>Comics</button>
         </Link>
-        <button>Favorite</button>
-
-        <button>Sign in</button>
-        <button>Login</button>
         <Link to="/">
           <img src={logo} alt="logo marvel" />
         </Link>
-
-        <div className="search-container">
-          <input
-            type="search"
-            placeholder="ex : Hulk"
-            onChange={handleSearch}
-            value={search}
-          />
-
-          <FaSearch
-            className="search-icon"
-            onClick={() => {
-              console.log("cliqué");
-            }}
-          />
-        </div>
+        <button>Favorite</button>
+        <button>Sign in</button>
+        <button>Login</button>
       </nav>
     </header>
   );

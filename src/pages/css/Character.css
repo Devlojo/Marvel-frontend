@@ -36,4 +36,23 @@
 
 .comics-container {
   display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .character-description-container h1 {
+    font-size: 18px;
+  }
+
+  .character-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .character-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

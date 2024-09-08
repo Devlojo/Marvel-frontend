@@ -6,7 +6,7 @@ import { LuArrowBigDown } from "react-icons/lu";
 
 import "./css/Home.css";
 
-const Home = ({ search }) => {
+const Home = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [limit, setLimit] = useState(3);

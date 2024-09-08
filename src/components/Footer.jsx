@@ -6,9 +6,9 @@ const Footer = () => {
       <footer>
         <p>
           {" "}
-          2024 copyrights © | Marvel by{" "}
-          <a href="https://github.com/Devlojo"> Jonathan Lacouture </a> | Tous
-          droits réservés{" "}
+          copyrights © 2024 | Marvel by{" "}
+          <a href="https://github.com/Devlojo"> Jonathan Lacouture </a> | All
+          rights reserved{" "}
         </p>
       </footer>
     </>

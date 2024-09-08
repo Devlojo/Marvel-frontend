@@ -1,6 +1,7 @@
 .characters-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
   padding: 20px 0;
 }
@@ -15,6 +16,7 @@
   border-radius: 10px;
   width: 250px;
   height: 354px;
+  position: relative;
 }
 
 .characters-items img {
@@ -44,4 +46,17 @@
 }
 .character-description p {
   margin: 10px 10px;
+}
+
+.heart-icon {
+  position: absolute;
+  font-size: 25px;
+  right: 5px;
+}
+
+.red {
+  color: red;
+  position: absolute;
+  font-size: 25px;
+  right: 5px;
 }
