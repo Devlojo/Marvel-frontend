@@ -3,19 +3,14 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Characters.css";
 import Loading from "../components/Loading";
-import { FaSearch } from "react-icons/fa";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { useRef } from "react";
 
 const Characters = ({ search, handleSearch }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const ref = useRef();
-
-  console.log(ref.current);
 
   const [isActive, setIsActive] = useState(false);
 
@@ -50,13 +45,6 @@ const Characters = ({ search, handleSearch }) => {
               placeholder="ex : Hulk"
               onChange={handleSearch}
               value={search}
-            />
-
-            <FaSearch
-              className="search-icon"
-              onClick={() => {
-                console.log("cliqué");
-              }}
             />
           </div>
           <div className="characters-container">

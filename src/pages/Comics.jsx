@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Comics.css";
 import Loading from "../components/Loading";
-import { FaSearch } from "react-icons/fa";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -36,13 +35,6 @@ const Comics = ({ search, handleSearch }) => {
             placeholder="ex : Hulk"
             onChange={handleSearch}
             value={search}
-          />
-
-          <FaSearch
-            className="search-icon"
-            onClick={() => {
-              console.log("cliqué");
-            }}
           />
         </div>
         <div className="comics-container">
