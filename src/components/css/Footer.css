@@ -9,3 +9,9 @@ footer a {
 footer a:hover {
   color: var(--mainRed);
 }
+
+@media (max-width: 500px) {
+  footer {
+    margin: 10px 30px;
+  }
+}

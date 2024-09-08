@@ -33,3 +33,9 @@
   margin-top: 10px;
   overflow: hidden;
 }
+
+@media (max-width: 460px) {
+  .comics-items {
+    width: 250px;
+  }
+}
