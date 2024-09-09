@@ -26,7 +26,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   color: white;
   width: 100%;
   box-sizing: border-box; /* Pour inclure le padding dans la largeur */
@@ -53,6 +52,12 @@ header {
   display: none;
 }
 
+.main-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
   .nav-menu button {
@@ -63,7 +68,7 @@ header {
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.8);
+    background-color: var(--mainRed);
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -73,8 +78,8 @@ header {
   .close-button {
     font-size: 40px;
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 30px;
+    left: 10px;
   }
 
   .show a,
@@ -85,8 +90,18 @@ header {
   }
 
   .burger-menu {
-    display: block;
+    display: flex;
     font-size: 40px;
+    padding-left: 10px;
+  }
+
+  .burger-menu-container {
+    display: flex;
+    flex: 1;
+  }
+
+  .main-menu {
+    flex: 2;
   }
 }
 

@@ -15,35 +15,39 @@ const Header = () => {
   return (
     <header>
       <nav className="nav-menu">
-        <GiHamburgerMenu className="burger-menu" onClick={toggleMenuBurger} />
-        <div className={!isOpen ? "hidden" : "show"}>
-          <IoIosCloseCircle
-            className="close-button"
-            onClick={toggleMenuBurger}
-          />
-          <Link to="/characters" onClick={toggleMenuBurger}>
+        <div className="burger-menu-container">
+          <GiHamburgerMenu className="burger-menu" onClick={toggleMenuBurger} />
+          <div className={!isOpen ? "hidden" : "show"}>
+            <IoIosCloseCircle
+              className="close-button"
+              onClick={toggleMenuBurger}
+            />
+            <Link to="/characters" onClick={toggleMenuBurger}>
+              <button>Characters</button>
+            </Link>
+            <Link to="/comics" onClick={toggleMenuBurger}>
+              <button>Comics</button>
+            </Link>
+
+            <button>Favorite</button>
+            <button>Sign in</button>
+            <button>Login</button>
+          </div>
+        </div>
+        <div className="main-menu">
+          <Link to="/characters">
             <button>Characters</button>
           </Link>
-          <Link to="/comics" onClick={toggleMenuBurger}>
+          <Link to="/comics">
             <button>Comics</button>
           </Link>
-
+          <Link to="/">
+            <img src={logo} alt="logo marvel" />
+          </Link>
           <button>Favorite</button>
           <button>Sign in</button>
           <button>Login</button>
         </div>
-        <Link to="/characters">
-          <button>Characters</button>
-        </Link>
-        <Link to="/comics">
-          <button>Comics</button>
-        </Link>
-        <Link to="/">
-          <img src={logo} alt="logo marvel" />
-        </Link>
-        <button>Favorite</button>
-        <button>Sign in</button>
-        <button>Login</button>
       </nav>
     </header>
   );

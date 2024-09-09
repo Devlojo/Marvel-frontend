@@ -72,7 +72,7 @@ const Character = () => {
                     <img
                       src={
                         comic.thumbnail.path +
-                        "/portrait_medium." +
+                        "/portrait_incredible." +
                         comic.thumbnail.extension
                       }
                       alt={`photo de ${comic.title}`}
