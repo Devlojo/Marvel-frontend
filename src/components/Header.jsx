@@ -5,19 +5,13 @@ import { IoIosCloseCircle } from "react-icons/io";
 
 import "./css/Header.css";
 import { useState } from "react";
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenuBurger = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Header = ({ burgerMenuIsOpen, toggleMenuBurger }) => {
   return (
     <header>
       <nav className="nav-menu">
         <div className="burger-menu-container">
           <GiHamburgerMenu className="burger-menu" onClick={toggleMenuBurger} />
-          <div className={!isOpen ? "hidden" : "show"}>
+          <div className={burgerMenuIsOpen ? "show" : "hidden"}>
             <IoIosCloseCircle
               className="close-button"
               onClick={toggleMenuBurger}

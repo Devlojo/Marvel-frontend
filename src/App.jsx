@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 /* PAGES */
 import Home from "./pages/Home";
@@ -17,10 +18,23 @@ import Footer from "./components/Footer";
 const App = () => {
   const [search, setSearch] = useState("");
   const [favorites, setFavorites] = useState([]);
+  const [burgerMenuIsOpen, setburgerMenuIsOpen] = useState(false);
+
+  const toggleMenuBurger = () => {
+    setburgerMenuIsOpen(!burgerMenuIsOpen);
+  };
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
+
+  useEffect(() => {
+    if (burgerMenuIsOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [burgerMenuIsOpen]);
 
   const handleFavorites = (event, dataId) => {
     event.preventDefault();
@@ -41,7 +55,10 @@ const App = () => {
   //console.log(Cookies.get("id"));
   return (
     <Router>
-      <Header />
+      <Header
+        burgerMenuIsOpen={burgerMenuIsOpen}
+        toggleMenuBurger={toggleMenuBurger}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
